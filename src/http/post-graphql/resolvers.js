@@ -10,11 +10,12 @@ module.exports = {
 }
 
 async function account(root, args, session) {
-  if (!session.account)
-    throw Error('not authorized')
-  let copy = session.account
-  delete copy.token
-  return copy
+  // if (!session.account)
+  //   throw Error('not authorized')
+  // let copy = session.account
+  // delete copy.token
+  // return copy
+  return 'hi user'
 }
 
 async function draft(root, args, session) {
