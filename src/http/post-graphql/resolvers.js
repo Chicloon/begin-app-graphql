@@ -47,6 +47,7 @@ async function save(root, draft, session) {
   draft.body = xss(draft.body)
   return await data.set({
     table: 'drafts', 
+    test : 'the test field',
     ...draft
   })
 }
