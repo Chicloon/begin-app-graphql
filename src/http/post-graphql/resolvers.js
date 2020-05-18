@@ -32,8 +32,8 @@ async function drafts(root, args, session) {
 }
 
 async function save(root, draft, session) {
-  if (!session.account)
-    throw Error('not authorized')
+  // if (!session.account)
+  //   throw Error('not authorized')
   let required = ['title', 'body']//, 'author', 'avatar']
   for (let param of required) {
     if (!draft[param])
@@ -41,8 +41,8 @@ async function save(root, draft, session) {
     if (draft[param] && draft[param].length < 4)
       throw RangeError(`${param} must be four or more characters`)
   }
-  draft.author = session.account.name
-  draft.avatar = session.account.avatar
+  // draft.author = session.account.name
+  // draft.avatar = session.account.avatar
   draft.title = xss(draft.title)
   draft.body = xss(draft.body)
   return await data.set({
